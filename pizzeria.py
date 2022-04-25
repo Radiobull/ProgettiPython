@@ -149,3 +149,7 @@ while True:
     elif sceltaC == "no" or sceltaC == "NO" or sceltaC == "No" or sceltaC == "nO" or sceltaC == "n" or sceltaC == "N":
         print("programma arrestato")
         break
+        
+    else:
+        print(inputerror001)
+        continue
