@@ -14,25 +14,26 @@ p3 = Prd("Pistacchiosa", 7.00, "no")
 
 p4 = Prd("Norma", 8.50, "si")
 
-bevanda1 = Prd("Birra bionda (media)", 5.50, True)
-bevanda2 = Prd("Birra bionda (grande)", 7.00, True)
+bevanda1 = Prd("Birra bionda (media)", 5.50, "si")
+bevanda2 = Prd("Birra bionda (grande)", 7.00, "si")
 
-bevanda3 = Prd("Birra rossa (media)", 5.50, True)
-bevanda4 = Prd("Birra rossa (grande)", 7.00, True)
+bevanda3 = Prd("Birra rossa (media)", 5.50, "si")
+bevanda4 = Prd("Birra rossa (grande)", 7.00, "si")
 
-bevanda5 = Prd("Bottiglietta d'acqua 0,5 L (naturale)", 2.00, True)
-bevanda6 = Prd("Bottiglietta d'acqua 0,5 L (frizzante)", 2.50, True)
+bevanda5 = Prd("Bottiglietta d'acqua 0,5 L (naturale)", 2.00, "si")
+bevanda6 = Prd("Bottiglietta d'acqua 0,5 L (frizzante)", 2.50, "si")
 
 #variabili
 totale = 0
 
 numeroP = 0
 
+#qua metto una variabile per scrivere un certo messagio che ripeto sempre
 inputerror001 = "errore: 0001 txt: hai sbagliato a digitare"
 
 contatore = 0
 
-#un ciclo while che simula un ciclo do (vedi sotto)
+#un ciclo while che simula un ciclo do (vedi sotto), racchiude tutto il programma
 while True:
     #il menù
     print("benvenuto gentile cliente, il menù è il seguente:\n")
@@ -41,7 +42,7 @@ while True:
     #le bevande
     print("Bevande:\n", "5-", bevanda1.nome, bevanda1.prezzo, "euro\n", "6-", bevanda2.nome, bevanda2.prezzo, "euro\n", "7-", bevanda3.nome, bevanda3.prezzo, "euro\n", "8-", bevanda4.nome, bevanda4.prezzo, "euro\n", "9-", bevanda5.nome, bevanda5.prezzo,"euro\n", "10-", bevanda6.nome, bevanda6.prezzo, "euro\n")
 
-    #qua provo a vedere se funziona col try ma se e minore di 0 la richiesta manda errore
+    #provo a vedere se funziona con il try ma se e minore di 0 la richiesta manda errore.(si potrebbero usare degl'if, elif ed else per fare le stesse mansioni in questo caso, ma ho deciso cosi perchè li volevo provare)
     try:
         numeroP = int(input("quante portate vuole ordinare?: "))
 
@@ -54,6 +55,7 @@ while True:
         continue
 
     else:
+        #qua il secondo ciclo adebito a mettere più di una risposta per avere più prodotti
         while True:
             #chiedo cosa ordinare se non è un numero/è un numero al difuori del range 1:10 glielo dico, se lo è vado avanti
             try:
@@ -64,9 +66,10 @@ while True:
                 continue
 
             else:
+                #la cascata di condizioni con il += che significa di aggungere al totale p1.prezzo o gli altri.
                 if scelta == 0: pass
 
-                elif scelta == 1: totale +=p1.prezzo
+                elif scelta == 1: totale += p1.prezzo
 
                 elif scelta == 2: totale += p2.prezzo
 
@@ -97,7 +100,7 @@ while True:
                 print("il totale è ", totale, "euro")
                 break
 
-    sceltaC = str(input("continuare? si/no: "))
+    sceltaC = input("continuare? si/no: ")
 
     #metto tutti i modi possibili di scrivere si e no
     if sceltaC == "si" or sceltaC == "SI" or sceltaC == "Si" or sceltaC == "sI" or sceltaC == "s" or sceltaC == "S":
@@ -110,6 +113,7 @@ while True:
         print("programma arrestato")
         break
 
+    #qua metto un else come se fosse un except
     else:
         print(inputerror001)
         continue
